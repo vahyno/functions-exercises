@@ -91,16 +91,14 @@ function findWdi(arr){
 // Given a string representing a sentence, return the
 // longest word in that sentence.
 function findLongestWord(sentence) {
-	var longestLength = -1;
-	var longestIndex = -1;
+	var longestIndex = 0;
 	var arr = sentence.split(" ");
-	for (var i = 0; i < arr.length; i++) {
-		if (arr[i].length > longestLength) {
-			longestLength = arr[i].length;
+	for (var i = 1; i < arr.length; i++) {
+		if (arr[i].length > arr[longestIndex].length) {
 			longestIndex = i;
 		}
 	}
-	return arr[i];
+	return arr[longestIndex];
 }
 // print a simple triangle with asterisks (ASCII Art!!!)
 // Example: printTriangle(5)
