@@ -123,8 +123,36 @@ function printTriangle(num){
 // A function that, when called, prompts the user to guess either "heads" or "tails" and returns their guess.
 // A function that takes in a string and puts that string into the result element on your page.
 // Then, write a fourth function that wraps all of these functions into one, so that calling that fourth function will prompt the user to guess heads or tails, flip a coin, and then tell the user whether or not they were right. Make sure that calling just that function from the console works as expected.
+console.log("js loaded");
 
+function headsTails(){
+  let coinflip = Math.floor(Math.random()*2)
+  if (coinflip===0){
+    return "heads"
+  } else {return "tails"}
+}
 
+function whatsYourGuess(){
+  usersGuess = prompt('Coin flip. Whats your guess? Enter: heads / tails' );
+  return usersGuess;
+}
+
+function stringToElement(string){
+  $('#result').text(string);
+}
+
+function playGame() {
+  let headsOrTails = headsTails();
+  let usersGuess = whatsYourGuess();
+  if(usersGuess === headsOrTails) {
+    stringToElement(`You got it! It was ${headsOrTails}!`)
+  } else {
+    stringToElement(`Nope, it was ${headsOrTails}.`)
+  }
+}
+$(document).ready(function() {
+  playGame();
+})
 
 
 
